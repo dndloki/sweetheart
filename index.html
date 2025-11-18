@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For You — Our Love Album</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --deep-red:#c21807;
+      --romantic:#ff6f91;
+      --pastel:#ffd9e2;
+      --white:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{font-family:'Montserrat',sans-serif;margin:0;background:linear-gradient(180deg,var(--pastel),#fff);color:#3a2b2b}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:linear-gradient(90deg,var(--deep-red),#ff7a88);color:var(--white);position:sticky;top:0;z-index:30;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .brand .logo{width:48px;height:48px;border-radius:12px;background:var(--white);display:grid;place-items:center;color:var(--deep-red);font-weight:700}
+    nav{display:flex;flex-wrap:wrap;gap:8px}
+    nav a{color:var(--white);text-decoration:none;padding:8px 12px;border-radius:8px;transition:background 0.3s ease}
+    nav a.active{background:rgba(255,255,255,0.15)}
+    main{padding:20px;min-height:70vh}
+    .card{background:var(--white);border-radius:16px;box-shadow:0 8px 30px rgba(194,32,7,0.08);padding:20px;max-width:1100px;margin:18px auto}
+    .cake-wrap{display:flex;gap:30px;align-items:center;flex-wrap:wrap;justify-content:center}
+    .cake-scene{width:260px;height:260px;display:grid;place-items:center}
+    .cake{width:200px;position:relative}
+    .layer{border-radius:18px;padding:18px;text-align:center;color:var(--white);font-weight:600}
+    .layer.top{background:var(--deep-red);height:50px;margin-bottom:8px}
+    .layer.mid{background:var(--romantic);height:50px;margin-bottom:8px}
+    .layer.bot{background:#ffeef2;height:50px;color:#40242a}
+    .candle{position:absolute;top:-18px;left:50%;transform:translateX(-50%);display:flex;gap:10px}
+    .candle .stick{width:6px;height:34px;background:#f9d4d4;border-radius:3px}
+    .candle .flame{width:10px;height:16px;border-radius:50%;background:linear-gradient(#fffc81,#ff8c61);animation:flicker 1s infinite}
+    @keyframes flicker{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+
+    .collage{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));grid-auto-rows:120px;gap:10px;}
+    .collage div{overflow:hidden;border-radius:12px;opacity:0;transform:translateY(30px);animation:fadeUp 1s ease forwards;}
+    .collage div:nth-child(odd){animation-delay:0.2s}
+    .collage div:nth-child(even){animation-delay:0.4s}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .collage img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s ease, box-shadow 0.3s ease;}
+    .collage img:hover{transform:scale(1.08);box-shadow:0 8px 16px rgba(0,0,0,0.2)}
+    .collage div:hover img{animation:float 3s ease-in-out infinite;}
+    @keyframes float {0%,100% {transform:translateY(0) scale(1.05);}50% {transform:translateY(-6px) scale(1.08);}}
+
+    .gift-container{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:20px}
+    .gift-box-link{width:180px;height:150px;background:linear-gradient(180deg,var(--deep-red),#ff7a88);border-radius:12px;display:grid;place-items:center;position:relative;cursor:pointer;text-decoration:none;color:var(--white);font-weight:700;transition:transform 0.3s ease, box-shadow 0.3s ease}
+    .gift-box-link:hover{animation:bounce 0.8s ease;box-shadow:0 0 15px rgba(255,182,193,0.7)}
+    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    .gift-box-link::before{content:'';position:absolute;top:40px;left:0;right:0;height:22px;background:rgba(255,255,255,0.3);animation:sparkle 2s infinite linear;opacity:0.6}
+    @keyframes sparkle {0% {background:rgba(255,255,255,0.2);}50% {background:rgba(255,255,255,0.6);}100% {background:rgba(255,255,255,0.2);}}
+
+    .audio-player{display:flex;align-items:center;gap:10px;margin-top:18px;flex-wrap:wrap}
+    .play-btn{background:linear-gradient(180deg,var(--romantic),var(--deep-red));border:none;color:var(--white);border-radius:50%;width:56px;height:56px;font-size:18px;cursor:pointer}
+
+    @media(max-width:600px){
+      header{flex-direction:column;align-items:flex-start}
+      nav{justify-content:center;width:100%}
+      .cake-scene{width:200px;height:200px}
+      .cake{width:160px}
+      .layer{height:40px;font-size:14px}
+      .gift-box-link{width:140px;height:120px;font-size:14px}
+      .audio-player{justify-content:center}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">❤</div>
+      <div>
+        <div style="font-weight:700">For You</div>
+        <div style="font-size:12px;opacity:.9">A tiny love website</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#home" class="active">Home</a>
+      <a href="#album">Album</a>
+      <a href="#gift">Gift</a>
+      <a href="#music">Music</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="card">
+      <div class="cake-wrap">
+        <div class="cake-scene">
+          <div class="cake">
+            <div class="candle"><div class="stick"></div><div class="flame"></div></div>
+            <div class="layer top">Forever</div>
+            <div class="layer mid">With You</div>
+            <div class="layer bot">My Love</div>
+          </div>
+        </div>
+        <div>
+          <h2 style="color:var(--deep-red);text-align:center">Happy Birthday My Love 🎂</h2>
+          <p style="text-align:center">Welcome to our tiny world of memories — a special space for us, filled with love, laughter, and everything beautiful.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="album" class="card" style="display:none">
+      <h3 style="color:var(--deep-red);text-align:center">Our Memory Album 📸</h3>
+      <div class="collage">
+        <div><img src="https://placehold.co/300x300?text=Memory+1" alt="Memory 1"></div>
+        <div><img src="https://placehold.co/200x200?text=Memory+2" alt="Memory 2"></div>
+        <div><img src="https://placehold.co/400x300?text=Memory+3" alt="Memory 3"></div>
+        <div><img src="https://placehold.co/300x400?text=Memory+4" alt="Memory 4"></div>
+        <div><img src="https://placehold.co/250x250?text=Memory+5" alt="Memory 5"></div>
+        <div><img src="https://placehold.co/300x200?text=Memory+6" alt="Memory 6"></div>
+        <div><img src="https://placehold.co/200x300?text=Memory+7" alt="Memory 7"></div>
+        <div><img src="https://placehold.co/300x250?text=Memory+8" alt="Memory 8"></div>
+        <div><img src="https://placehold.co/250x300?text=Memory+9" alt="Memory 9"></div>
+        <div><img src="https://placehold.co/350x300?text=Memory+10" alt="Memory 10"></div>
+      </div>
+    </section>
+
+    <section id="gift" class="card" style="display:none">
+      <h3 style="color:var(--deep-red);text-align:center">A Gift For You 🎁</h3>
+      <div class="gift-container">
+        <a href="https://photos.google.com/" target="_blank" class="gift-box-link">Gift Box 1</a>
+        <a href="https://photos.google.com/" target="_blank" class="gift-box-link">Gift Box 2</a>
+        <a href="https://photos.google.com/" target="_blank" class="gift-box-link">Gift Box 3</a>
+      </div>
+    </section>
+
+    <section id="music" class="card" style="display:none">
+      <h3 style="color:var(--deep-red);text-align:center">Our Songs 🎵</h3>
+      <div class="audio-player">
+        <button class="play-btn" id="playBtn1">▶</button>
+        <audio id="audio1" src="https://www.w3schools.com/html/horse.mp3"></audio>
+      </div>
+      <div class="audio-player">
+        <button class="play-btn" id="playBtn2">▶</button>
+        <audio id="audio2" src="https://www.w3schools.com/html/horse.mp3"></audio>
+      </div>
+      <div class="audio-player">
+        <button class="play-btn" id="playBtn3">▶</button>
+        <audio id="audio3" src="https://www.w3schools.com/html/horse.mp3"></audio>
+      </div>
+    </section>
+  </main>
+
+  <footer style="text-align:center;padding:18px;color:#7a6060">Made with ❤️ Just for You</footer>
+
+  <script>
+    const pages = document.querySelectorAll('main section');
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = link.getAttribute('href').substring(1);
+        pages.forEach(page => page.style.display = page.id === target ? 'block' : 'none');
+        navLinks.forEach(l => l.classList.toggle('active', l === link));
+      });
+    });
+
+    function setupPlayer(btnId, audioId){
+      const btn = document.getElementById(btnId);
+      const audio = document.getElementById(audioId);
+      btn.addEventListener('click', () => {
+        if(audio.paused){
+          document.querySelectorAll('audio').forEach(a => a.pause());
+          document.querySelectorAll('.play-btn').forEach(b => b.textContent='▶');
+          audio.play();
+          btn.textContent='⏸';
+        } else {
+          audio.pause();
+          btn.textContent='▶';
+        }
+      });
+    }
+    setupPlayer('playBtn1','audio1');
+    setupPlayer('playBtn2','audio2');
+    setupPlayer('playBtn3','audio3');
+  </script>
+</body>
+</html>
